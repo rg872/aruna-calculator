@@ -1,26 +1,24 @@
-import React, { useEffect, useState } from 'react';
-
-import './button-operator.component.scss'
+import React, { useEffect, useState } from "react";
+import { operatorTypes, operatorSymbols } from "../../utils/enum";
+import "./button-operator.component.scss";
 
 export default function ButtonOperator(props) {
   const { type, handleClick } = props;
-  const [symbol, setSymbol] = useState('');
-
-  const operatorTypes = ['plus', 'minus', 'times', 'divide']
-  const operatorSymbols = {
-    plus: '+',
-    minus: '-',
-    times: 'x',
-    divide: '/'
-  }
+  const [symbol, setSymbol] = useState("");
 
   useEffect(() => {
-    if(type && typeof type === 'string' && operatorTypes.findIndex((ot) => ot === type) !== -1) {
-      setSymbol(operatorSymbols[type])
+    if (
+      type &&
+      typeof type === "string" &&
+      operatorTypes.findIndex(ot => ot === type) !== -1
+    ) {
+      setSymbol(operatorSymbols[type]);
     }
-  }, [symbol, type, operatorTypes, operatorSymbols])
+  }, [symbol, type]);
 
   return (
-  <button className="button-operator" onClick={() => handleClick(type)}>{ symbol }</button>
-  )
+    <button className="button-operator" onClick={() => handleClick(type)}>
+      {symbol}
+    </button>
+  );
 }
