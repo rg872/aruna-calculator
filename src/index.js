@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 import InputNumber from './components/input-number/input-number.component.jsx'
 import CheckboxInputSelection from './components/checkbox-input-selection/checkbox-input-selection.component.jsx'
+import ButtonOperator from './components/button-operator/button-operator.component'
 
 import './index.scss'
 
@@ -13,6 +14,12 @@ function Calculator() {
   const [isFirstNumSelected, setFirstNumSelect] = useState(false);
   const [isSecondNumSelected, setSecondNumSelect] = useState(false);
   const [isThirdNumSelected, setThirdNumSelect] = useState(false);
+
+  const operatorTypes = ['plus', 'minus', 'times', 'divide']
+
+  const calculate = (selectedOperator) => {
+    console.log('INI OPERATOR', selectedOperator)
+  }
 
   return (
     <div className="container">
@@ -27,6 +34,11 @@ function Calculator() {
       <div className="input-wrapper">
         <InputNumber number={thirdNumber} setNumber={setThirdNumber}/>
         <CheckboxInputSelection isChecked={isThirdNumSelected} setCheck={setThirdNumSelect}/>
+      </div>
+      <div className="operator-button-wrapper">
+        { operatorTypes.map(type => (
+          <ButtonOperator key={type} type={type} handleClick={calculate}/>
+        )) }
       </div>
     </div>
   )
