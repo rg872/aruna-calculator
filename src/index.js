@@ -5,7 +5,7 @@ import InputNumber from "./components/input-number/input-number.component.jsx";
 import CheckboxInputSelection from "./components/checkbox-input-selection/checkbox-input-selection.component.jsx";
 import ButtonOperator from "./components/button-operator/button-operator.component";
 
-import { operatorTypes, operatorSymbols } from "./utils/enum";
+import { operatorTypes } from "./utils/enum";
 
 import "./index.scss";
 
@@ -99,7 +99,7 @@ function Calculator() {
         </div>
       </section>
       <hr />
-      <h3>HASIL {result}</h3>
+      <h3>RESULT {result}</h3>
     </div>
   );
 }
